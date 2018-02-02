@@ -1,0 +1,7 @@
+---
+layout: null
+type: json
+---
+[{% for author in site.authors %}{% assign articlenum =  0 %}{% for post in site.posts %}{% if post.author == author.name %}{% assign articlenum = articlenum | plus : 1 %}
+{% endif %}{% endfor %}{{articlenum | strip }}{% if forloop.last == false %},{% endif %}{% endfor %}
+]

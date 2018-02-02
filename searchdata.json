@@ -1,0 +1,14 @@
+---
+layout: null
+type: json
+---
+[
+{% for category in site.categories  %}
+  "{{ category | first}}" ,
+{% endfor %}
+
+{% for author in site.authors  %}
+  "{{ author.name }}"
+  {% if forloop.last %} {% else %},{% endif %}
+{% endfor %}
+]

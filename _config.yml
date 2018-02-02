@@ -1,0 +1,16 @@
+markdown: kramdown
+highlighter: rouge
+paginate: 13
+#permalink: /blog/:categories/:year/:month/:day/:title.html
+permalink: /blog/:year/:month/:day/:title.html
+
+#_Plugins
+safe: false
+
+#Collections author list info.
+collections:
+    authors:
+        output: true
+        permalink: /authors/:path/
+plugins:
+    - jekyll-paginate
