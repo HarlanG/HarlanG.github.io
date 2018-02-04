@@ -4,7 +4,7 @@ type: json
 ---
 [
 {% for post in site.posts  %}
-  ["{{ post.title }}" , "{{ post.category }}" , "{{ post.author }}","{{ post.image }}","{{ post.url }}"]
+  ["{{ post.title }}" , "{{ post.category }}" , "{{ post.author }}","{{ post.image }}","{{ post.url }}",{{post.date | date: "%Y"}}]
   {% if forloop.last %} {% else %},{% endif %}
 {% endfor %}
 ]

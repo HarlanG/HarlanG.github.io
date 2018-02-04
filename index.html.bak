@@ -69,7 +69,7 @@ limit_tags: 8
                         时间选择
                         <div class="inline-block " id="timeselect">
                             <select id="timeselect-s">
-                                <option class="blogtime-s" value="0"><span>ALL</span> </option>
+                                <option class="blogtime-s" value="{{ y }}"><span>ALL</span> </option>
                                 {% for year in site.data.years %}
                                 {% assign yearcount = 0 %}
                                 {% assign y = year.y %}
