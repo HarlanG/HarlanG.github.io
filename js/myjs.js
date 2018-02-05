@@ -93,13 +93,43 @@ $(document).ready(function () {
 				}
 				return image;
   		}		
-  		//生成HTML代码
-  		function contactHTML(data,category){
-  			var content = "";
-  			//选取指定类型博客，拼接至content中
-					 	$.each(data,function (i,array) {
-
-							  //选取该类别博客  
+  		
+  			
+  			/*
+  			*   显示所有博客
+  			*/
+  			function getAllBlogs(array){
+  				var content = "";
+					//获取用户图片地址
+					var image = getBlogImage(array);							
+					//获取用户分类路径
+					var authorpath = getBlogerPath(authors,array);
+					content += contactitem(array,image,siteurl,authorpath);						
+					content += "  ";
+					return content;	
+  			}
+  			
+  			/*
+  			*    显示某一年度所有博客
+  			*/
+  			function getBlogsByYear(array,time){
+					var content = "";
+					if(year == array[5]) {
+						//获取用户图片地址
+						var image = getBlogImage(array);							
+						//获取用户分类路径
+						var authorpath = getBlogerPath(authors,array);
+						content += contactitem(array,image,siteurl,authorpath);						
+						content += "  ";
+					}	
+					return content;		
+  			}
+  			
+  			/*
+  			*		显示某一类别所有博客
+  			*/
+  			function getBlogsByCategory(category,array){
+  			var content = ""; 
 								if(category.toLowerCase() == array[1].toLowerCase()) {
 									//获取用户图片地址
 									var image = getBlogImage(array);							
@@ -107,28 +137,91 @@ $(document).ready(function () {
 									var authorpath = getBlogerPath(authors,array);
 									content += contactitem(array,image,siteurl,authorpath);						
 									content += "  ";
-								}													
-						})
+								}	
+				return content;		
+  			}
+  			
+  			/*
+  			*		显示某一类别某一年度的所有博客
+  			*/
+  			function getBlogsByCT(category,array,time){
+  			var content = "";
+  			 //选取该类别博客  
+								if(category.toLowerCase() == array[1].toLowerCase() & time == array[5] ) {
+									//获取用户图片地址
+									var image = getBlogImage(array);							
+									//获取用户分类路径
+									var authorpath = getBlogerPath(authors,array);
+									content += contactitem(array,image,siteurl,authorpath);						
+									content += "  ";
+								}	
+				return content;		
+  			}
+  			
+  			
+  		//生成HTML代码
+  		function contactHTML(data,category,time){
+  			var content = "";
+  			//选取指定类型博客，拼接至content中
+  			if(category == "ALL" ){
+  					if(time == 0)
+  					{
+  						$.each(data,function (i,array) {
+								content +=  getAllBlogs(array)	;									
+							})
+  					}
+  					else
+  					{
+  						$.each(data,function (i,array) {
+								content +=  getBlogsByYear(array,time);									
+							})
+  								
+  					}
+
+  			}
+  			else 
+  			{
+  					if(time == 0)
+  					{
+  						$.each(data,function (i,array) {
+								content +=  getBlogsByCategory(category,array);									
+							})
+  					}
+  					else
+  					{
+  							$.each(data,function (i,array) {
+								content +=  getBlogsByCT(category,array,time);									
+							})
+  							
+  							
+  					}				
+  			}					
   			return content;
   		}
-
+		var datapath = "/postdetails.json";		
+		function getUserSelect(category,time){
+			 var content = "";  
+      //获取所有博客信息，获得该类别博客
+      $.getJSON(datapath,function (data) {    	
+				content = contactHTML(data,category,time);		
+        $(".topicShow").html(content);
+      });
+		}
 		/*根据分类 查询*/
-		var datapath = "/postdetails.json";																	    
+																	    
     $("#typeselect-s").change(function () {  
-    	                           //index页面的异步刷新    																																		 //获取类别    
-        var  category = $(this).val();
-       	var time =  $("#timeselect-s").val();																																		 //该类别所有博客
-        var content = "";
-        //获取所有博客信息，获得该类别博客
-        $.getJSON(datapath,function (data) {    
-						if( "ALL" != category){		
-							content = contactHTML(data,category);
-						}
-						else{
-							content = contactHTML(data,category);
-						}
-          $(".topicShow").html(content);
-        });
+    	var category = $(this).val();
+     	var time     =  $("#timeselect-s").val();																																		 //该类别所有博客
+      getUserSelect(category,time) ;                     //index页面的异步刷新  																																		 //获取类别    
+        
+    })
+    
+    /*根据时间 查询*/
+    $("#timeselect-s").change(function () {  
+    	var time     = $(this).val();
+     	var category = $("#typeselect-s").val();																																		 //该类别所有博客
+      getUserSelect(category,time) ;                     //index页面的异步刷新  																																		 //获取类别    
+        
     })
     
 
