@@ -198,6 +198,22 @@
 #nav-container{
     margin-top: 0px;
 }
+
+.searchresult{
+    position: absolute;
+    z-index: 1000;
+    float: outside;
+    list-style: none;
+    opacity: 0;
+    width: 90%;
+    border-radius: 30px;
+}
+.searchresult>li{
+    color: #fff;
+    background-color: black;
+    border-radius: 20px;
+}
+
 /*博客首页主体左侧*/
 
 /*最新消息*/
@@ -336,6 +352,8 @@
     text-align: center;
     bottom:0%;
     border-radius: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .blogers-img{
     width: 50px;
@@ -356,6 +374,14 @@
     color: #24292c;
     text-underline: none;
 }
+ .getmore{
+     background-color: gray;
+     text-align: center;
+     line-height: 32px;
+     display: none;
+     border-radius: 30px;
+     margin-bottom:30px;
+ }
 /*底部栏设置*/
 .bottom-div {
     background-color: black;

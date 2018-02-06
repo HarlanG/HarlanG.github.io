@@ -88,42 +88,9 @@ limit_tags: 8
                 </div>
                 <!--博客区域-->
                 <div class="row topicShow ">
-                    {% for post in paginator.posts%}
-                    <div class="col-xs-12 col-sm-6 col-md-4 ">
-                        <div class="list-group topic-item">
-                            <div class="list-group-item image-item">
-                                <a  href='{{ post.url }}' target='_blank' title='{{ post.title }}'>
-                                    {% if post.image == null %}
-                                    <img class="border-radius img-size-percent " src="/images/blogways.png">
-                                    {% else %}
-                                    <img class="border-radius img-size-percent " src="{{ post.image }}">
-                                    {% endif %}
-                                </a>
-                                    <div class="hover"></div>
-                                    <div class="topic-title ">{{ post.title }}</div>
-                            </div>
-                            <div class="list-group-item info-item">
-                                {% for author in site.authors %}
-                                    {% if author.name == post.author %}
-                                        {% assign authorpath = author.page_path %}
-                                    {% endif %}
-                                {% endfor %}
-                                <span><a href="{{ site.url }}{{ authorpath }}">{{post.author}}</a></span>
-                                <span class="pull-right"> <span class="glyphicon glyphicon-tag">&nbsp;<a
-                                        href="{{ site.url }}/categories/{{ post.category }}">{{post.category}}</a></span></span>
-                                <div class="line-div"></div>
-                            </div>
-                            <div class="list-group-item info-item container-fluid ">
-                                <div class="row">
-                                    <span class="col-xs-4"><img src="/images/readcount.png">33</span>
-                                    <span class="col-xs-4 col-xs-offset-1"><img src="/images/message.png">33</span>
-                                    <span class="col-xs-2 col-xs-offset-1"><img src="/images/unknowlike.png"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+
                 </div>
+                <div class="col-xs-10 col-xs-push-1   col-sm-10  col-sm-push-1 getmore ">正在加载更多</div>
             </div>
 
         </div>
@@ -147,7 +114,6 @@ limit_tags: 8
                 <li class="list-group-item margin-top-3 margin-top-5px">
                     <a class="a-black-noline" href="#"><span>{{ y }}年度</span></a><span class="pull-right badge">{{ yearcount }}</span>
                 </li>
-
                 {% endfor %}
 
             </ul>

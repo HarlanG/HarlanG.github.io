@@ -1,6 +1,6 @@
 markdown: kramdown
 highlighter: rouge
-paginate: 13
+paginate: 9
 #permalink: /blog/:categories/:year/:month/:day/:title.html
 permalink: /blog/:year/:month/:day/:title.html
 
