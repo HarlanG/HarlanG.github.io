@@ -204,14 +204,16 @@
     z-index: 1000;
     float: outside;
     list-style: none;
-    opacity: 0;
+    opacity: 0.9;
     width: 90%;
-    border-radius: 30px;
+    padding-left: 2px;
 }
-.searchresult>li{
+.searchresultitem{
     color: #fff;
     background-color: black;
-    border-radius: 20px;
+    border-radius: 5px;
+    width: 90%;
+    text-align: center;
 }
 
 /*博客首页主体左侧*/
