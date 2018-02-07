@@ -8,39 +8,23 @@ title: 年度博文
         <div class="col-xs-12  col-sm-12 yearBlogTip">
             <span class="glyphicon glyphicon-home"></span>首页>博文
         </div>
-        <div class="col-sm-12  col-md-9 row">
-             {% for year in site.data.years %}
-                    {% assign yearcount = 0 %}
-                    {% assign y = year.y %}
-                    {% for post in site.posts %}
-                        {% assign postyear = post.date | date: "%Y" %}
-                        {% if postyear == y %}
-                            {% assign yearcount = yearcount | plus : 1 %}
-                        {% endif %}
-                    {% endfor %}
-                    <div class="col-sm-12  col-md-12 row list-group">
-                        <a href="#" class="list-group-item">{{ y }}年度 (共计{{ yearcount }}篇)</a>
-                        {% for author in site.authors %}
-                            {% assign name = author.name | strip%}
-                            {% assign authorPosts = 0 %}
-                            {% for post in site.posts %}
-                                {% assign postyear = post.date | date: "%Y" %}
-                                {% assign postauthor = post.author | strip %}
-                                {% if postyear == y and name == postauthor %}
-                                    {%  assign authorPosts = authorPosts | plus : 1 %}
-                                {% endif %}
-                            {% endfor %}
-                            {% if authorPosts > 0 %}
-                            <a href="{{site.url}}{{ author.page_path }}" class="list-group-item">
-                                <span class="glyphicon glyphicon-user "></span>{{ name }}
-                                <span class="pull-right ">共计<span style="font-size: 18px">{{authorPosts}}</span>篇</span>
-                            </a>
-                            {% endif %}
-                        {% endfor %}
 
-                    </div>
-             {% endfor %}
+        <div class="col-sm-12  col-md-9 row">
+            {% for year in site.data.years %}
+            {% assign yearcount = 0 %}
+            {% assign y = year.y %}
+            {% for post in site.posts %}
+            {% assign postyear = post.date | date: "%Y" %}
+            {% if postyear == y %}
+            {% assign yearcount = yearcount | plus : 1 %}
+            {% endif %}
+            {% endfor %}
+            <div class="col-sm-12  col-md-12 row list-group yearBlogSub-container">
+                <a href="#" class="list-group-item yearBlogSub">{{ y }}年度 (共计{{ yearcount }}篇)</a>
+            </div>
+            {% endfor %}
         </div>
+
         <!--右侧分类-->
         <div class="col-sm-0 col-md-3">
         	<div class="col-md-12 typetags">
@@ -68,10 +52,35 @@ title: 年度博文
     </div>
     <script>
         $(document).ready(function () {
-            var yearBlogSub =  $(".yearBlogSub");
-            $.each(yearBlogSub,function (i, element) {
-                $(element).css("opacity",1-(i*0.08));
+            var siteurl = $("#siteurl").val();
+            var yearBlogs = "";
+            var yearBlogsPath = "/yearBlogs.json";
+            $.ajaxSettings.async = false; //设置getJson同步
+            $.getJSON(yearBlogsPath,function (data) {
+                yearBlogs = data;
+            });
+            $.ajaxSettings.async = true;//设置getJson异步
+            var yearBlogSub =  $(".yearBlogSub-container");
+            $.each(yearBlogSub,function (offset, element) {
+                var subYearBlogs = yearBlogs[offset];
+                for(var i = 0 ; i <subYearBlogs.length-1;i++ ){
+                    for(var j = 0 ; j< subYearBlogs.length-1;j++ ){
+                        if (subYearBlogs[j].articles < subYearBlogs[j+1].articles){
+                            var temp = subYearBlogs[j+1] ;
+                            subYearBlogs[j+1] = subYearBlogs[j];
+                            subYearBlogs[j] = temp;
+                        }
+                    }
+                }
+                var yearBlogHTML = "";
+                for (var i = 0;i< subYearBlogs.length;i++){
+                    var subYearBlogHTML = '<a href="'+siteurl+subYearBlogs[i].page_path+'" class="list-group-item"><span class="glyphicon glyphicon-user "></span>'+subYearBlogs[i].name+'<span class="pull-right ">共计<span style="font-size: 18px">'+subYearBlogs[i].articles+'</span>篇</span> </a>'
+                    yearBlogHTML += subYearBlogHTML;
+                }
+                $(element).append(yearBlogHTML);
+                $(element).children().first().css("opacity",1-(offset*0.08));
             })
+
         })
     </script>
 </div>

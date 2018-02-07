@@ -1,0 +1,21 @@
+---
+layout: null
+type: json
+---
+{% for year in site.data.years %}
+  {% assign yearcount = 0 %}{% assign y = year.y %}{% assign yearBlogsOfAuthor = "" %}{% for author in site.authors %}{% assign name = author.name | strip%}
+    {% assign authorPosts = 0 %}{% for post in site.posts %}{% assign postyear = post.date | date: "%Y" %}{% assign postauthor = post.author | strip %}
+      {% if postyear == y and name == postauthor %}{%  assign authorPosts = authorPosts | plus : 1 %}{% endif %}{% endfor %}
+    {% if authorPosts > 0 %}
+      {% assign yearBlogsOfAuthor = yearBlogsOfAuthor | append : '.{"name":"' %}
+      {% assign yearBlogsOfAuthor = yearBlogsOfAuthor | append : name %}
+      {% assign yearBlogsOfAuthor = yearBlogsOfAuthor | append : '","articles":' %}
+      {% assign yearBlogsOfAuthor = yearBlogsOfAuthor | append : authorPosts %}
+      {% assign yearBlogsOfAuthor = yearBlogsOfAuthor | append : ',"page_path":"' %}
+      {% assign yearBlogsOfAuthor = yearBlogsOfAuthor | append : author.page_path %}
+      {% assign yearBlogsOfAuthor = yearBlogsOfAuthor | append : '"}' %}{% endif %}{% endfor %}
+  {% assign yearBlogsOfAuthor = yearBlogsOfAuthor | remove_first: "." %}
+  {% assign yearBlogsOfAuthorArray = yearBlogsOfAuthor | split: "."%}{% if forloop.first == true %}[{% endif %}
+{% for item in yearBlogsOfAuthorArray %}{% if forloop.first == true %}[{% endif %}{{ item }}{% if forloop.last == false %},{% endif %}{% if forloop.last == true %}]{% endif %}
+{% endfor %}{% if forloop.last == false %},{% endif %}{% if forloop.last == true %}]{% endif %}
+{% endfor %}
