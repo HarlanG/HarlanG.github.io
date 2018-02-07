@@ -1,89 +1,81 @@
-<script>
-    $(document).ready(function () {
-        (function () {
-            $.getJSON("/authors.json", function (mJSON) {
-                $.each(mJSON, function (i, item) {
-                    var name = item.name.replace(" ", "") || "";
-                    var num = item.articles.length || 0;
-                    $("#" + name + '-side-num').html(num);
-                });
-            });
-        })();
-    });
-</script>
+<div class="container" id="index-body">
+    <div class="row ">
+        <!--左侧主体-->
+        {% assign author = page.name |strip  %}
+        <div class="col-xs-12  col-sm-12 yearBlogTip">
+            <span class="glyphicon glyphicon-home"></span>首页>博文>{{author}}
+        </div>
 
-<div class='container'>
-    <div class='main-content row'>
-        <div class='mainbar col-md-9 col-sm-12 col-xs-12'>
-            <div class='panel panel-info'>
-                <div class='al-author-title panel-heading'>
-                    <h2 class='al-author-name panel-title'>{{ page.name }}</h2>
-                </div>
-            </div>
+        <div class="col-sm-12  col-md-9 row">
 
-            <div class='al-article-list visible-lg visible-md visible-sm hidden-xs'>
-                {% for year in site.data.years %}
-                {% assign flag = true %}
+            {% for year in site.data.years %}
+            {% assign yearcount = 0 %}
+            {% assign y = year.y %}
+            {% for post in site.posts %}
+                {% assign postyear = post.date | date: "%Y" %}
+                {% assign postauthor = post.author |strip  %}
+                {% if postyear == y and  author == postauthor %}
+                    {% assign yearcount = yearcount | plus : 1 %}
+                {% endif %}
+            {% endfor %}
+            {% if yearcount > 0 %}
+            <div class="col-sm-12  col-md-12 row list-group yearBlogSub-container">
+                <a href="#" class="list-group-item yearBlogSub">{{y}}年度 (共计{{ yearcount }}篇)</a>
                 {% for post in site.posts %}
-                {% if post.author == page.name %}
-                {% capture y%}{{ post.date | date: "%Y" }}{% endcapture %}
-                {% if year.y == y %}
-                {% if flag == true %}
-                <div class='panel panel-default'>
-                    <div class='panel-body'>
-                        <h2 class='al-year'>{{ year.y }}</h2>
-                        <hr class='al-hr'>
-                        {% assign flag = false %}{% endif %}
-                        <div class='al-article'>
-                            <a href='{{ post.url }}' target='_blank' title='{{ post.title }}'>{{ post.title | truncate:
-                                30 }}</a>
-                            <span class='al-article-date'>&nbsp;(发布于：{{ post.date | date: '%Y.%m.%d' }})</span>
-                        </div>
-                        {% endif %}{% endif %}{% endfor %}
-                        {% if flag == false %}
-                    </div>
-                </div><!--end of panel-->{% endif %}{% endfor %}
-            </div><!--end of article-list-->
+                    {% assign postyear = post.date | date: "%Y" %}
+                    {% assign postauthor = post.author |strip  %}
+                    {% if postyear == y and  author == postauthor %}
+                <a href="{{ post.url }}" class="list-group-item"><span class="glyphicon glyphicon-user "></span>{{ post.title }}<span class="pull-right ">发布于:{{post.date | date: "%Y.%m.%d"}}</span> </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
 
-            <div class='al-article-list-xs hidden-lg hidden-md hidden-sm visible-xs'>
-                {% for year1 in site.data.years %}
-                    {% assign flag1 = true %}
-                    {% for post1 in site.posts %}
-                        {% if post1.author == page.name %}
-                            {% capture y1 %}{{ post1.date | date: '%Y' }}{% endcapture %}
-                            {% if year1.y == y1 %}
-                            {% if flag1 == true %}
-                <div class='panel panel-default'>
-                    <div class='panel-heading'>
-                        <h2 class='panel-title al-year'>{{ year1.y }}</h2>
-                    </div>
-                    <div class='list-group'>{% assign flag1 = false %}{% endif %}
-                        <a class='list-group-item list-group-item-default' href='{{ post1.url }}' target='_blank'>
-                            <h4 class='list-group-item-heading al-title-xs'>{{ post1.title | truncate: 30 }}</h4>
-                            <div class='list-group-item-text'>
-                                <span class='al-article-date-xs pull-right'>({{ post1.date | date: '%m.%d' }})</span>
-                                <span class='badge'>{{ post1.category }}</span>
-                            </div>
-                        </a>{% endif %}{% endif %}{% endfor %}
-                        {% if flag1 == false %}
-                    </div><!--end of list-group-->
-                </div><!--end of panel-->{% endif %}{% endfor %}
-            </div><!--end of list-xs-->
-        </div><!--end of mainbar-->
-        <div class='sidebar col-md-3 hidden-sm hidden-xs'>
-            <div class='authorslistbar panel panel-default' id='authorslistbar'>
-                <div class='panel-heading'>
-                    <h4 class='panel-title'>作者列表</h4>
+        <!--右侧分类-->
+        <div class="col-sm-0 col-md-3">
+            <div class="col-md-12 typetags">
+                <div class=" tags-padding-vertical box-shadow-0-5">
+                    <span class="glyphicon glyphicon-tree-conifer"></span>&nbsp;&nbsp;&nbsp;<strong>作者列表</strong>
                 </div>
-                <div class='list-group'>{% for author in site.authors %}{% if page.name != author.name %}
-                    <a class='list-group-item' href='{{ author.page_path }}'>{{ author.name | remove: ' ' }}
-                        <span class='badge pull-right' id="{{ author.name | remove: ' ' }}-side-num"></span>
-                    </a>{% else %}
-                    <a class='list-group-item disabled'>{{ author.name | remove: ' ' }}
-                        <span class='badge pull-right' id="{{ author.name | remove: ' ' }}-side-num"></span>
-                    </a>{% endif %}{% endfor %}
-                </div>
-            </div><!--end of authorslistbar-->
-        </div><!--end of sidebar-->
-    </div><!--end of main-content-->
-</div><!--end of container-->
+                <ul id="blogers-tags" class="list-group ">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var siteurl = $("#siteurl").val();
+            var blogerpath = "/blogerdetails.json";                	//博主详情（姓名，头像，博文数，博主页面地址）　ｊｓｏｎ文件地址
+            var blogercontent = "";																	//人气博主栏ＨＴＭＬ代码
+            $.getJSON(blogerpath,function(data) {
+                //读取数据
+                var blogers = data;																		//对象元素的数组
+                for(var i = 0; i < blogers.length-1 ;i++){																				//选择排序选出博文数最高前五
+                    var indexMax = i;
+                    for(var j = i;j < blogers.length;j++){
+                        if(blogers[indexMax].articles < blogers[j].articles){
+                            indexMax = j;
+                        }
+                    }
+                    var bloger = blogers[indexMax];
+                    blogers[indexMax] = blogers[i];
+                    blogers[i] = bloger;
+                }																												//拼接ＨＴＭＬ代码
+                for(var k = 0 ;k < blogers.length;k++){
+                    var blogeritem =  '<li class="list-group-item margin-top-3 margin-top-5px" >'+
+                        '<a class="a-black-noline" href="'+siteurl +blogers[k].path + '">'+blogers[k].name+'</a><span class="pull-right badge">'+blogers[k].articles+'</span>'+
+                    '</li>';
+                    blogercontent += blogeritem;
+                }
+                //生成HTML内容
+                $("#blogers-tags").html(blogercontent);
+            })
+
+
+        })
+    </script>
+</div>
+
+
