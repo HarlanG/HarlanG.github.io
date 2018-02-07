@@ -130,7 +130,17 @@
         padding-left: 50px;
     }
 }
-
+.container{
+	margin-top: 100px;
+	}
+	
+/* to-top*/
+.totop > a, .totop-xs > a{ background: url(http://img.baidu.com/img/iknow/exp/exp-share-sprite.png) no-repeat;}
+#to-top{ position: fixed; bottom: 50px; right: 50px; z-index: 99999; background-position: 0 -110px;  width: 50px; height: 50px;    display: none;}
+#to-top-xs{ position: fixed; bottom: 20px; right: 20px; z-index: 99999; background-position: 0 -110px;  width: 50px; height: 50px;    display: none;}
+#to-top:hover, #to-top-xs:hover { text-decoration: none; background: #31b0d5;}
+#to-top-title, #to-top-title-xs{ font-family: 'Microsoft Yahei',"微软雅黑",arial,"宋体",sans-serif; font-size: 14px; color: #fff; width: 50px; height: 50px; display: none; line-height: 18px; padding-top: 6px; padding-left: 9px; }
+	
 .search-text{
     background-color: black;
     border: none;
@@ -391,6 +401,7 @@
     padding-bottom: 40px;
     text-align: center;
     color: #8c8c8c;
+
 }
 /*测试用值*/
 .border-color-red {

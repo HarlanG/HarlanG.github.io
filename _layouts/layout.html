@@ -14,8 +14,8 @@
     <script src='/js/jquery-2.1.1.js'></script>
     <link rel='stylesheet' type='text/css' href='/bootstrap/css/bootstrap.css'>
     <link rel='stylesheet' type='text/css' href='/bootstrap/css/bootstrap-theme.css'>
-    <link rel='stylesheet' type='text/css' href='/css/app.css'>
     <link rel='stylesheet' type='text/css' href='/css/mycss2.css'>
+    <link rel='stylesheet' type='text/css' href='/css/yearBlog.css'>
     <script src='/bootstrap/js/bootstrap.js'></script>
     <script src='/js/app.js'></script>
     <script src='/js/myjs.js'></script>
@@ -40,13 +40,14 @@
             <span id='to-top-title-xs'>返回</br>顶部</span>
         </a>
     </div>
+    <input id="siteurl" class="siteurl" type="hidden" value="{{ site.url }}">
     <div class='headerbar'>
         {% include header.html %}
     </div>
     {{ content }}
-    <div class="container-fluid bottom-div">
+    <footer class=" container-fluid bottom-div fixed">
         CUC Industry Innovation R&D<br>
         亚信科技（南京）有限公司 &nbsp;&nbsp;联通事业部
-    </div>
+    </footer>
 </body>
 </html>	

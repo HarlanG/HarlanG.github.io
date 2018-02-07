@@ -21,7 +21,8 @@
                 <div class="collapse navbar-collapse " id="example-navbar-collapse">
                     <ul class="nav navbar-nav blogtag4">
                         <li><a href="#">HOME</a></li>
-                        <li><a href="#">BlOG</a></li>
+                        <li><a href="/yearBlog.html">BlOG</a></li>
+                        <li><a href="#">MY-ZONE</a></li>
                         <li><a href="#">ABOUT US</a></li>
                         <li><a href="#">MORE</a></li>
                         <li class="dropdown" id="mobile-tags">
@@ -29,32 +30,12 @@
                                aria-haspopup="true" aria-expanded="false"><strong>热门分类</strong> <span
                                     class="caret"></span></a>
                             <ul class="dropdown-menu list-group">
-                                <li class="list-group-item margin-top-3">
-                                    <a class="a-change-noline" href="#">杂记</a><span class="pull-right badge">35</span>
+                                {% assign sortcategories = site.categories | sort %}
+                                {% for category in sortcategories  %}
+                                <li class="list-group-item margin-top-3 margin-top-5px" >
+                                    <a class="a-black-noline" href="{{ site.url }}/categories/{{ category | first}}">{{ category[0]}}</a><span class="pull-right badge">{{ category[1]| size}}</span>
                                 </li>
-                                <li class="list-group-item">
-                                    <a class="" href="#">web前端</a><span class="pull-right badge">22</span>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="a-change-noline" href="#">UI设计</a><span class="pull-right badge">6</span>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="a-change-noline" href="#">Apache</a><span
-                                        class="pull-right badge">8</span>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="a-change-noline" href="#">Express</a><span
-                                        class="pull-right badge">9</span>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="a-change-noline" href="#">Java</a><span class="pull-right badge">13</span>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="a-change-noline" href="#">交互设计</a><span class="pull-right badge">7</span>
-                                </li>
-                                <li class="list-group-item">
-                                    &nbsp;<a href="#" class="pull-right ">MORE></a>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </li>
                     </ul>

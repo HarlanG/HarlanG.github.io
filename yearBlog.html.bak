@@ -1,0 +1,63 @@
+---
+layout: layout
+title: 年度博文
+---
+<div class="container" id="index-body">
+    <div class="row ">
+        <!--左侧主体-->
+        <div class="col-xs-12  col-sm-12 yearBlogTip">
+            <span class="glyphicon glyphicon-home"></span>首页>博文
+        </div>
+        <div class="col-sm-12  col-md-9">
+						
+            <div class="col-xs-12  col-sm-12 yearBlogSub"></div>
+            
+             {% for year in site.data.years %}
+                    {% assign yearcount = 0 %}
+                    {% assign y = year.y %}
+                    {% for post in site.posts %}
+                        {% assign postyear = post.date | date: "%Y" %}
+                        {% if postyear == y %}
+                            {% assign yearcount = yearcount | plus : 1 %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                     <div class="col-xs-12  col-sm-12 yearBlogSub">
+                     	
+                     	{{ y }}年度 (共计{{ yearcount }}篇) 
+                     	
+                     </div>
+               
+             {% endfor %}
+            
+        </div>
+        <!--右侧分类-->
+        <div class="col-sm-0 col-md-3">
+        	<div id="searchtest"></div>
+        	<div class="col-md-12 typetags">
+            <div class="  tags-padding-vertical box-shadow-0-5">
+                <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;&nbsp;<strong>年度博文</strong>
+            </div>
+            <ul id="yearblog-tags" class="list-group ">
+                {% for year in site.data.years %}
+                    {% assign yearcount = 0 %}
+                    {% assign y = year.y %}
+                    {% for post in site.posts %}
+                        {% assign postyear = post.date | date: "%Y" %}
+                        {% if postyear == y %}
+                            {% assign yearcount = yearcount | plus : 1 %}
+                        {% endif %}
+                    {% endfor %}
+                <li class="list-group-item margin-top-3 margin-top-5px">
+                    <a class="a-black-noline" href="#"><span>{{ y }}年度</span></a><span class="pull-right badge">{{ yearcount }}</span>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        </div>
+        
+    </div>
+</div>
+
+
