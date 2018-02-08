@@ -1,7 +1,14 @@
-<div class="container" id="index-body">
+<div class="container" id="authorlist-body" >
     <div class="row ">
         <!--左侧主体-->
         {% assign author = page.name |strip  %}
+        <div class=" author-photo ">
+            <img class="photo" src="{{page.image}}"><br>
+            {{author}}
+
+        </div>
+
+
         <div class="col-xs-12  col-sm-12 yearBlogTip">
             <span class="glyphicon glyphicon-home"></span>首页>博文>{{author}}
         </div>
@@ -18,9 +25,8 @@
                     {% assign yearcount = yearcount | plus : 1 %}
                 {% endif %}
             {% endfor %}
-            {% if yearcount > 0 %}
             <div class="col-sm-12  col-md-12 row list-group yearBlogSub-container">
-                <a href="#" class="list-group-item yearBlogSub">{{y}}年度 (共计{{ yearcount }}篇)</a>
+                <p class=" yearBlogSub yearCountBar ">{{y}}年度 ({{ yearcount }}篇)</p>
                 {% for post in site.posts %}
                     {% assign postyear = post.date | date: "%Y" %}
                     {% assign postauthor = post.author |strip  %}
@@ -29,23 +35,27 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            {% endif %}
             {% endfor %}
         </div>
 
         <!--右侧分类-->
         <div class="col-sm-0 col-md-3">
-            <div class="col-md-12 typetags">
+            <div class="col-md-12 typetags ">
                 <div class=" tags-padding-vertical box-shadow-0-5">
                     <span class="glyphicon glyphicon-tree-conifer"></span>&nbsp;&nbsp;&nbsp;<strong>作者列表</strong>
                 </div>
-                <ul id="blogers-tags" class="list-group ">
+
+                <ul id="blogers-tags" class="list-group author-list">
                 </ul>
             </div>
         </div>
     </div>
     <script>
         $(document).ready(function () {
+            var yearBlogSub =  $(".yearBlogSub-container");
+            $.each(yearBlogSub,function (offset, element) {
+                $(element).children().first().css("opacity",1-(offset*0.08));
+            });
             var siteurl = $("#siteurl").val();
             var blogerpath = "/blogerdetails.json";                	//博主详情（姓名，头像，博文数，博主页面地址）　ｊｓｏｎ文件地址
             var blogercontent = "";																	//人气博主栏ＨＴＭＬ代码
@@ -72,6 +82,13 @@
                 //生成HTML内容
                 $("#blogers-tags").html(blogercontent);
             })
+            $(".yearBlogSub-container").hover(
+                function () {
+                    $(this).find("a").slideDown(300).css("display","block");
+                },
+                function () {
+                    $(this).find("a").slideUp(300);
+                });
 
 
         })
