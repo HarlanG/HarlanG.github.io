@@ -45,7 +45,7 @@ $(document).ready(function () {
        '<a href="'+siteurl+blogers[k].path+'"><img class="blogers-img vertical-align-bottom" src="'+siteurl+blogers[k].image+'"></a>'+
       	'<div class="inline-block blogers-info"><a class="a-black-noline" href="'+siteurl+blogers[k].path+'"><span >'+blogers[k].name+'</span></a>'+
       	'<br><span class="line-height-25">上传:&nbsp;<a href="#">'+blogers[k].articles+'</a>&nbsp;&nbsp;人气:&nbsp;999</span></div>'+
-      	'</li>  ';
+      	'</li>  <div class="spritline"></div> ';
       	blogercontent += blogeritem;
 			}
 																														//生成HTML内容

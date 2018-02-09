@@ -4,6 +4,7 @@
     #nav-search-computer{
         display: inherit;
         margin-top: 15px;
+        margin-left: -5%;
       }
     #nav-search-mobile{
         display: none;
@@ -26,7 +27,6 @@
     #search-text{
         margin-right: 0px;
         display: inline-block;
-        width: 80% !important;
     }
     .line-height-50{
         line-height: 30px !important;
@@ -54,13 +54,11 @@
     #nav-search-mobile{
         display: inherit;
         padding-top: 12px;
-        padding-left: 0px;
-
-
+        /*padding-left: 0px;*/
     }
     #nav-search-mobile > form {
-        padding: 0px;
-        margin-left: -20px;
+        /*padding: 0px;
+        margin-left: -20px;*/
     }
     .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
         margin-left: 0px;
@@ -75,16 +73,14 @@
 /*中大型设备*/
 @media (min-width: 992px) {
     .container{
-        width: 90%;
+        width: 85%;
     }
     #nav-search-computer{
         display: inherit;
         padding-top: 24px !important;
     }
     #nav-search-computer > form {
-        padding: 0px;
-        margin-left: -20px;
-        float: right;
+        /*margin-left: -20px;*/
     }
     #nav-search-mobile{
         display: none;
@@ -97,19 +93,20 @@
     }
     #computer-tags,#yearblog-tags,#blogers-tags{
         display: inherit;
-        width: 222px;
         background-color: #F3F3F3;
     }
 }
 @media (min-width: 1170px) {
     #nav-search-computer > form {
-        margin-left: 0px;
-        float: none;
+
     }
 }
-#computer-tags li,#yearblog-tags li,#blogers-tags li{
-    background-color: #dcdcdc;
-
+#computer-tags a,#yearblog-tags a,#blogers-tags li{
+    background-color: #f3f3f3;
+    border:  none;
+}
+#blogers-tags li{
+    padding: 10px;
 }
 @media (max-width: 991px) {
     .author-photo{
@@ -127,7 +124,6 @@
     #nav-search-mobile .search-text{
         margin-right: 0px;
         display: inline-block;
-        width: 69% !important;
     }
     .typetags{
         display: none;
@@ -163,21 +159,48 @@
 #to-top-xs{ position: fixed; bottom: 20px; right: 20px; z-index: 99999; background-position: 0 -110px;  width: 50px; height: 50px;    display: none;}
 #to-top:hover, #to-top-xs:hover { text-decoration: none; background: #31b0d5;}
 #to-top-title, #to-top-title-xs{ font-family: 'Microsoft Yahei',"微软雅黑",arial,"宋体",sans-serif; font-size: 14px; color: #fff; width: 50px; height: 50px; display: none; line-height: 18px; padding-top: 6px; padding-left: 9px; }
-	
+
 .search-text{
     background-color: black;
     border: none;
     padding: 0px;
-    width: 165px !important;
     font-size: 12px;
-    height: 30px;
+    height: 20px;
+    vertical-align: bottom;
+}
+.search-text{
+    width: 65% !important;
+}
+.search-text-coin{
+    width: 10% !important;
+}
+.search-text-new{
+    margin-top: 1%;
+    float: right;
 }
 .search-form{
     border-radius: 20px;
     background-color: black;
     padding: 1px 4px;
+    width: 100%;
 }
-
+@media (min-width: 992px) {
+    .search-form{
+        min-width: 174px;
+    }
+}
+.width-percent-hundrud{
+ width: 100%;
+}
+.no-padding-left{
+    padding-left: 0px;
+}
+.no-padding-right{
+    padding-right:0px;
+}
+.search-form-width{
+    width: 173px;
+}
 .blogtag1 {
     font-weight: bolder;
     font-size: 33px;
@@ -205,18 +228,18 @@
     border-radius: 25px;
 }
 
-.navbar-container,.navbar-container .collapse,#nav-coin,#nav-search-computer,
-#nav-search-computer .navbar-form {
+#nav-coin{
     padding: 0px;
 }
-
+#nav-search-computer .navbar-form{
+    margin-left: -20px;
+}
 #nav-search-computer .navbar-form,#nav-search-mobile .navbar-form{
     margin-top: 0px;
     margin-bottom: 0px;
 }
 .navbar-container {
     min-height: 60px;
-
 }
 .navbar{
     padding: 9px 0px;
@@ -230,7 +253,7 @@
     padding: 0px;
 }
 #nav-container{
-    margin-top: 0px;
+    margin-top: -20px;
 }
 
 .searchresult{
@@ -345,23 +368,16 @@
     .tags-padding-vertical{
         padding-left: 15px;
         line-height:48px ;
-        width: 222px;
+        width: 100%;
         font-size: 14px;
-        background-color: #dcdcdc;
+        background-color: #fff;
     }
 }
 @media(min-width: 1170px) {
     .image-item{
         height: 174px;
     }
-    .tags-padding-vertical{
-        padding-left: 15px;
-        line-height:48px ;
-        width: 222px;
-        font-size: 14px;
-        background-color: #dcdcdc;
 
-    }
 }
 .info-item{
     background-color: #DBDBDB;
@@ -417,6 +433,21 @@
      display: none;
      border-radius: 30px;
      margin-bottom:30px;
+ }
+ .spritline{
+     border-bottom: 2px solid #dcdedd;
+     box-shadow: 0 2px inset #fff;
+     margin: 0 auto;
+     width: 91%;
+ }
+.spritline-gray{
+    border-bottom: 2px solid gray;
+    box-shadow: 0 2px inset #fff;
+    margin: 0 auto;
+    width: 91%;
+}
+ .background-color-list-item{
+     background-color: #f3f3f3;
  }
 /*底部栏设置*/
 .bottom-div {

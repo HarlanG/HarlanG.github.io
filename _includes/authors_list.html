@@ -39,13 +39,13 @@
         </div>
 
         <!--右侧分类-->
-        <div class="col-sm-0 col-md-3">
-            <div class="col-md-12 typetags ">
+        <div class="col-sm-0 col-md-3 no-padding-right margin-left-15">
+            <div class="col-md-12 typetags no-padding-right ">
                 <div class=" tags-padding-vertical box-shadow-0-5">
                     <span class="glyphicon glyphicon-tree-conifer"></span>&nbsp;&nbsp;&nbsp;<strong>作者列表</strong>
                 </div>
 
-                <ul id="blogers-tags" class="list-group author-list">
+                <ul id="yearblog-tags" class="list-group author-list">
                 </ul>
             </div>
         </div>
@@ -74,14 +74,13 @@
                     blogers[i] = bloger;
                 }																												//拼接ＨＴＭＬ代码
                 for(var k = 0 ;k < blogers.length;k++){
-                    var blogeritem =  '<li class="list-group-item margin-top-3 margin-top-5px" >'+
-                        '<a class="a-black-noline" href="'+siteurl +blogers[k].path + '">'+blogers[k].name+'</a><span class="pull-right badge">'+blogers[k].articles+'</span>'+
-                    '</li>';
+                    var blogeritem = '<a href="'+siteurl +blogers[k].path + '" class="list-group-item margin-top-3 margin-top-5px" >'+blogers[k].name+'<span class="pull-right badge">'+blogers[k].articles+'</span></a><div class="spritline"></div>';
                     blogercontent += blogeritem;
                 }
                 //生成HTML内容
-                $("#blogers-tags").html(blogercontent);
+                $("#yearblog-tags").html(blogercontent);
             })
+            /*
             $(".yearBlogSub-container").hover(
                 function () {
                     $(this).find("a").slideDown(300).css("display","block");
@@ -90,7 +89,7 @@
                     $(this).find("a").slideUp(300);
                 });
 
-
+            */
         })
     </script>
 </div>

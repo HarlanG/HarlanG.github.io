@@ -49,7 +49,7 @@
     background-color: white;
     line-height: 40px;
     margin-bottom: 13px;
-	width: 98%;
+	width: 98.5%;
 }
 
 .yearBlogSub{
@@ -66,9 +66,11 @@
 	padding-right: 0px;
 	margin-left: 0px;
 }
+
+/* 默认访问页面时所有年度博文，作者列表打开
 .yearBlogSub-container a{
 	display: none;
-}
+}*/
 .yearBlog-margin-top-14{
     margin-top: 15px;
 }
@@ -90,6 +92,9 @@
  max-height: 526px;
 	overflow: scroll;
 	overflow-x: hidden;
+}
+.margin-left-15{
+	margin-left: 15px;
 }
 /*博客详情页面*/
 .mainbar{

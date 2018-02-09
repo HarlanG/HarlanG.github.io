@@ -31,7 +31,7 @@ limit_tags: 8
                 <div class="col-xs-2 col-sm-1 newblog-top-row"><span class="glyphicon glyphicon-remove"></span></div>
                 <!--最新消息主体，显示最新发表的博文-->
                 {% for post in site.posts limit:2%}
-                <div class="col-xs-3 col-sm-1  col-md-1 line-height-50 border-bottom-line no-padding-left"><img class="img-size"
+                <div class="col-xs-3 col-sm-1  col-md-1 line-height-50 border-bottom-line "><img class="img-size"
                                                                                                                 src="/images/usertop.PNG">
                 </div>
                 <div class="col-xs-4 col-sm-2  col-md-2 newblog-row line-height-50 border-bottom-line"><a class="a-change"
@@ -40,11 +40,11 @@ limit_tags: 8
                 <div class="col-xs-10 col-sm-6 col-sm-pull-2 col-md-6 newblog-row line-height-50 border-bottom-line">
                     <a class="a-change" href="{{ post.url }}">{{ post.title}}</a>
                 </div>
-                <div class="col-xs-2 col-sm-1  col-md-1 newblog-row line-height-50 border-bottom-line no-padding-right">
+                <div class="col-xs-2 col-sm-1  col-md-1 newblog-row line-height-50 border-bottom-line ">
                     <a class="a-change" href="{{ post.url }}"><span class="glyphicon glyphicon-search"></span></a>
                     </div>
-                {% if forloop.last == false%}
-                <div class="col-xs-12 line-div "></div>
+                {% if forloop.last == false %}
+                <div class="spritline-gray"></div>
                 {% endif %}
                 {% endfor %}
             </div>
@@ -93,9 +93,9 @@ limit_tags: 8
 
         </div>
         <!--右侧分类提示-->
-        <div class="col-sm-0 col-md-3">
+        <div class=" col-sm-0   col-md-3">
         	<div id="searchtest"></div>
-        	<div class="col-md-12 typetags">
+        	<div class="col-md-12 typetags no-padding-right">
             <div class="  tags-padding-vertical box-shadow-0-5">
                 <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;&nbsp;<strong>年度博文</strong>
             </div>
@@ -109,28 +109,30 @@ limit_tags: 8
                             {% assign yearcount = yearcount | plus : 1 %}
                         {% endif %}
                     {% endfor %}
-                <li class="list-group-item margin-top-3 margin-top-5px">
-                    <a class="a-black-noline" href="/yearBlog.html#{{y}}"><span>{{ y }}年度</span></a><span class="pull-right badge">{{ yearcount }}</span>
-                </li>
+                <a href="/yearBlog.html#{{y}}" class="list-group-item background-color-list-item">
+                    <span>{{ y }}年度</span><span class="pull-right badge">{{ yearcount }}</span>
+                </a>
+                <div class="spritline"></div>
                 {% endfor %}
 
             </ul>
         </div>
-        <div class="col-md-12 typetags">
+        <div class="col-md-12 typetags no-padding-right">
             <div class="  tags-padding-vertical box-shadow-0-5">
                 <span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;&nbsp;<strong>热门分类</strong>
             </div>
             <ul id="computer-tags" class="list-group " >
                 {% assign sortcategories = site.categories | sort %}
                 {% for category in sortcategories  %}
-                <li class="list-group-item margin-top-3 margin-top-5px" >
-                    <a class="a-black-noline" href="{{ site.url }}/categories/{{ category | first}}">{{ category[0]}}</a><span class="pull-right badge">{{ category[1]| size}}</span>
-                </li>
+                <a href="{{ site.url }}/categories/{{ category | first}}" class="list-group-item margin-top-3 margin-top-5px" >
+                    {{ category[0]}}<span class="pull-right badge">{{ category[1]| size}}</span>
+                </a>
+                <div class="spritline"></div>
                 {% endfor %}
 
             </ul>
         </div>
-        <div class="col-md-12 typetags">
+        <div class="col-md-12 typetags no-padding-right">
             <div class=" tags-padding-vertical box-shadow-0-5">
                 <span class="glyphicon glyphicon-tree-conifer"></span>&nbsp;&nbsp;&nbsp;<strong>人气博主</strong>
             </div>

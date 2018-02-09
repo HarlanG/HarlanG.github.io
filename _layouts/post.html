@@ -99,12 +99,13 @@ pt_page_type: pt
                         {% assign num = num | plus:1 %}
                         {% endif %}
                         {% endfor %}
-                        <li class="list-group-item margin-top-3 margin-top-5px">
-                            <a class="a-black-noline" href="/yearBlog.html#{{y}}"><span class="glyphicon glyphicon-duplicate"></span>&nbsp;文章</a><span class="pull-right badge">{{ num }}</span>
-                        </li>
-                        <li class="list-group-item margin-top-3 margin-top-5px">
-                            <a class="a-black-noline" href="/yearBlog.html#{{y}}"><span class="glyphicon glyphicon-duplicate"></span>&nbsp;关注</a><span class="pull-right badge">22</span>
-                        </li>
+                        <a href="/yearBlog.html#{{y}}" class="list-group-item margin-top-3 margin-top-5px">
+                            <span class="glyphicon glyphicon-duplicate"></span>&nbsp;文章<span class="pull-right badge">{{ num }}</span>
+                        </a>
+                        <a href="/yearBlog.html#{{y}}" class="list-group-item margin-top-3 margin-top-5px">
+                           <span class="glyphicon glyphicon-duplicate"></span>&nbsp;关注<span class="pull-right badge">22</span>
+                        </a>
+                        <div class="spritline"></div>
                     </ul>
                 </div>
                 {% if site.related_post != empty %}
@@ -117,8 +118,8 @@ pt_page_type: pt
                         <li class="list-group-item margin-top-3 margin-top-5px">
                             <a href="{{post.url}}"><span>{{ post.title }}</span></a><br>
                             <span class="glyphicon glyphicon-user "></span>{{post.author}} <span class="glyphicon glyphicon-calendar pull-right">{{ post.date | date: "%Y-%m-%d"  }}</span>
-
                         </li>
+                        <div class="spritline"></div>
                         {% endfor %}
                     </ul>
                 </div><!--end of newestbar-->{% endif %}
