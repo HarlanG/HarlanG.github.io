@@ -3,8 +3,8 @@ layout: null
 type: json
 ---
 [
-{% for category in site.categories  %}
-  "{{ category | first}}" ,
+{% for tag in site.tags  %}
+  "{{ tag | first}}" ,
 {% endfor %}
 
 {% for author in site.authors  %}
