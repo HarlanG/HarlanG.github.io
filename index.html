@@ -124,7 +124,7 @@ limit_tags: 8
             <ul id="computer-tags" class="list-group " >
                 {% assign sortcategories = site.categories | sort %}
                 {% for category in sortcategories  %}
-                <a href="{{ site.url }}/categories/{{ category | first}}" class="list-group-item margin-top-3 margin-top-5px" >
+                <a href="{{ site.url }}/categories/{{ category | first | downcase }}" class="list-group-item margin-top-3 margin-top-5px" >
                     {{ category[0]}}<span class="pull-right badge">{{ category[1]| size}}</span>
                 </a>
                 <div class="spritline"></div>

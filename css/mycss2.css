@@ -449,6 +449,11 @@
  .background-color-list-item{
      background-color: #f3f3f3;
  }
+
+ .line-height-48{
+     line-height: 48px;
+     margin-right: 2%;
+ }
 /*底部栏设置*/
 .bottom-div {
     background-color: black;

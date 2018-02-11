@@ -39,10 +39,10 @@ pt_page_type: pt
                                         <span class='glyphicon glyphicon-tag'></span> 暂无 {% else %}
                                         <span class='glyphicon glyphicon-tags'></span>&nbsp;{% for tag in page.tags %}
                                         {% if limnum > 0 %}
-                                        <a class='label label-info' href='#'>{{ tag }}</a>
+                                        <a class='label label-default' href='#'>{{ tag }}</a>
                                         {% assign limnum = limnum | minus: 1 %}{% endif %}
-                                        {% if forloop.last == false and limnum > 0 %}、{% endif %}{% endfor %}{% endif %}
-                                        分类: <a class='label label-info' href='/categories/{{ page.category | first | downcase }}/'>{{ page.category }}</a>
+                                        {% if forloop.last == false and limnum > 0 %}&nbsp;{% endif %}{% endfor %}{% endif %}
+                                        <span class="glyphicon glyphicon-list"></span>&nbsp;分类: <a class='label label-default' href='/categories/{{ page.category | first | downcase }}/'>{{ page.category }}</a>
                                     </div>
                                     <div class="col-xs-12  col-sm-2">
                                         <small class='pt-article-date hidden-xs'>
