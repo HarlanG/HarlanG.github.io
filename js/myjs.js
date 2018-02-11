@@ -32,7 +32,7 @@ $(document).ready(function () {
 				if (existFlag == 1){
                     subResult = '<li class="searchresultitem"><a target="_blank" href="'+siteurl+authorBlogPath+'">'+sdata+'</li> </a> ';
 				}else{
-                    subResult = '<li class="searchresultitem"><a target="_blank" href="'+siteurl+'/tags/'+sdata.toLowerCase()+'">'+sdata+'</li></a> ';
+                    subResult = '<li class="searchresultitem"><a target="_blank" href="'+siteurl+'/tags/'+sdata.toLowerCase()+'/">'+sdata+'</li></a> ';
 				}
                 searchresult += subResult;
                 subResult = "";
