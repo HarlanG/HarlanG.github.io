@@ -2,101 +2,97 @@
 layout: layout
 page_tags: 标签
 ---
+<div class="container" id="authorlist-body" >
+    <div class="row ">
+        <div class=" author-photo " style="visibility: hidden">
+            <img class="photo" src=""><br>
+        </div>
 
-    <div class='container'>
-        <div class='main-content row'>
-            <div class='mainbar col-md-9 col-sm-12 col-xs-12'>
-                <div class='panel panel-info tag-search-result'>
-                    <div class='category-title panel-heading'>
-                        <h2 class='category-name panel-title'>{{ page.tag }}</h2>
-                    </div>
+        <div class="col-xs-12  col-sm-12 yearBlogTip">
+            <span class="glyphicon glyphicon-home"></span>首页>标签>{{page.tag}}
+        </div>
+
+        <div class="col-sm-12  col-md-9 row">
+
+            {% for year in site.data.years %}
+                {% assign flag = true %}
+                {% for cate in site.tags %}
+                {% capture c1 %}{{ cate[0] | downcase }}{% endcapture %}
+                {% capture c2 %}{{ page.tag | downcase }}{% endcapture %}
+                {% capture c3 %}{{ cate[0] }}{% endcapture %}
+                    {% if c1 == c2 %}
+                        {% for post in site.tags[c3] %}
+                        {% capture y %}{{ post.date | date: '%Y' }}{% endcapture %}
+                            {% if year.y == y %}
+                                {% if flag == true %}
+                                <div class="col-sm-12  col-md-12 row list-group yearBlogSub-container">
+                                    <p class=" yearBlogSub yearCountBar ">{{ year.y }}年度 </p>{% assign flag = false %}
+                                {% endif %}
+                                <a href="{{ post.url }}" class="list-group-item"><span class="glyphicon glyphicon-user "></span>&nbsp;{{ post.title }}<span class="pull-right ">发布于:{{post.date | date: "%Y.%m.%d"}}</span> </a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                {% if flag == false %}
+                        </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!--右侧分类-->
+        <div class="col-sm-0 col-md-3 no-padding-right margin-left-15">
+            <div class="col-md-12 typetags no-padding-right ">
+                <div class=" tags-padding-vertical box-shadow-0-5">
+                    <span class="glyphicon glyphicon-tree-conifer"></span>&nbsp;&nbsp;&nbsp;<strong>作者列表</strong>
                 </div>
 
-                <div class='category-list al-article-list visible-lg visible-md visible-sm hidden-xs '>
-                    {% for year in site.data.years %}
-                    {% assign flag = true %}
-                    {% for cate in site.tags %}
-                    {% capture c1 %}{{ cate[0] | downcase }}{% endcapture %}
-                    {% capture c2 %}{{ page.tag | downcase }}{% endcapture %}
-                    {% capture c3 %}{{ cate[0] }}{% endcapture %}
-                    {% if c1 == c2 %}
-                    {% for post in site.tags[c3] %}
-                    {% capture y %}{{ post.date | date: '%Y' }}{% endcapture %}
-                    {% if year.y == y %}
-                    {% if flag == true %}
-                    <div class='panel panel-default'>
-                        <div class='panel-body'>
-                            <h2 class='al-year'>{{ year.y }}</h2>
-                            <hr class='al-hr'>{% assign flag = false %}{% endif %}
-                            <div class='al-article'>
-                                <a href='{{ post.url }}' target='_blank' title='{{ post.title }}'>{{ post.title | truncate: 30 }}</a>
-                                <span class='al-article-date'>&nbsp;(发布于：{{ post.date | date: '%Y.%m.%d' }})</span>
-                            </div>{% endif %}{% endfor %}
-                            {% endif %}{% endfor %}
-                            {% if flag == false %}
-                        </div>
-                    </div><!--end of panel-->{% endif %}{% endfor %}
-                </div><!--end of category-list-->
+                <ul id="yearblog-tags" class="list-group author-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var yearBlogSub =  $(".yearBlogSub-container");
+            $.each(yearBlogSub,function (offset, element) {
+                $(element).children().first().css("opacity",1-(offset*0.08));
+            });
+            var siteurl = $("#siteurl").val();
+            var blogerpath = "/blogerdetails.json";                	//博主详情（姓名，头像，博文数，博主页面地址）　ｊｓｏｎ文件地址
+            var blogercontent = "";																	//人气博主栏ＨＴＭＬ代码
+            $.getJSON(blogerpath,function(data) {
+                //读取数据
+                var blogers = data;																		//对象元素的数组
+                for(var i = 0; i < blogers.length-1 ;i++){																				//选择排序选出博文数最高前五
+                    var indexMax = i;
+                    for(var j = i;j < blogers.length;j++){
+                        if(blogers[indexMax].articles < blogers[j].articles){
+                            indexMax = j;
+                        }
+                    }
+                    var bloger = blogers[indexMax];
+                    blogers[indexMax] = blogers[i];
+                    blogers[i] = bloger;
+                }																												//拼接ＨＴＭＬ代码
+                for(var k = 0 ;k < blogers.length;k++){
+                    var blogeritem = '<a href="'+siteurl +blogers[k].path + '" class="list-group-item margin-top-3 margin-top-5px" >'+blogers[k].name+'<span class="pull-right badge">'+blogers[k].articles+'</span></a><div class="spritline"></div>';
+                    blogercontent += blogeritem;
+                }
+                //生成HTML内容
+                $("#yearblog-tags").html(blogercontent);
+            })
+            /*
+            $(".yearBlogSub-container").hover(
+                function () {
+                    $(this).find("a").slideDown(300).css("display","block");
+                },
+                function () {
+                    $(this).find("a").slideUp(300);
+                });
 
-                <div class='al-article-list-xs hidden-lg hidden-md hidden-sm visible-xs'>
-                    {% for year1 in site.data.years %}
-                        {% assign flag1 = true %}
-                        {% for cate in site.categories %}
-                            {% capture c1 %}{{ cate[0] | downcase }}{% endcapture %}
-                            {% capture c2 %}{{ page.category | downcase }}{% endcapture %}
-                        {% capture c3 %}{{ cate[0] }}{% endcapture %}
-                        {% if c1 == c2 %}
-                        {% for post1 in site.categories[c3] %}
-                        {% capture y1 %}{{ post1.date | date: '%Y' }}{% endcapture %}
-                        {% if year1.y == y1 %}
-                         {% if flag1 == true %}
-                    <div class='panel panel-default'>
-                        <div class='panel-heading'>
-                            <h2 class='panel-title al-year'>{{ year1.y }}</h2>
-                        </div>
-                        <div class='list-group'>{% assign flag1 = false %}{% endif %}
-                            <a class='list-group-item list-group-item-default' href='{{ post1.url }}' target='_blank'>
-                                <h4 class='list-group-item-heading al-title-xs'>{{ post1.title | truncate: 30 }}</h4>
-                                <div class='list-group-item-text'>
-                                    <span class='al-article-date-xs pull-right'>({{ post1.date | date: '%m.%d' }})</span>
-                                    <span class='badge'>{{ post1.category }}</span>
-                                </div>
-                            </a>{% endif %}{% endfor %}
-                            {% endif %}{% endfor %}
-                            {% if flag1 == false %}
-                        </div><!--end of list-group-->
-                    </div><!--end of panel-->{% endif %}{% endfor %}
-                </div><!--end of list-xs-->
-            </div><!--end of mainbar-->
-            <div class='sidebar col-md-3 hidden-sm hidden-xs'>
-                <div class='cate-ix-bar panel panel-default' id='categorybar'>
-                    <div class='panel-heading'>
-                        <h4 class='panel-title'>热门分类</h4>
-                    </div>
-                    <div class='list-group' id="categorybar-list">
-                    </div>
-                </div><!--end of cateixbar-->
-                <script>
-                    $(document).ready(function(){
-                        (function(){
-                            $.getJSON("/categorycount.json",function(o){
-                                $.each( o, function( i , item ){
-                                    var currentCategory = "{{ page.category | downcase }}";
+            */
+        })
+    </script>
+</div>
 
-                                    var content;
-                                    if (currentCategory !== item[0]) {
-                                      content ="<a class='list-group-item list-group-item-default' href='/categories/"+item[0]+"/'>"+item[1];
-                                    }else{
-                                      content ="<a class='list-group-item disabled' >"+item[1];
-                                    }
-                                    content += "<span class='badge pull-right'>"+item[2]+"</span>"+
-                                    "</a>"
-                                    $("#categorybar-list").append(content);
-                                });
-                            });
-                        })();
-                    });
-                </script>
-            </div><!--end of sidebar-->
-        </div><!--end of main-content-->
-    </div><!--end of container-->
+

@@ -12,9 +12,11 @@
     <script src='/js/jquery-2.1.1.js'></script>
     <link rel='stylesheet' type='text/css' href='/bootstrap/css/bootstrap.css'>
     <link rel='stylesheet' type='text/css' href='/bootstrap/css/bootstrap-theme.css'>
-    <link rel='stylesheet' type='text/css' href='/css/app.css'>
+    <link rel='stylesheet' type='text/css' href='/css/mycss2.css'>
+    <link rel='stylesheet' type='text/css' href='/css/yearBlog.css'>
     <script src='/bootstrap/js/bootstrap.js'></script>
     <script src='/js/app.js'></script>
+    <script src='/js/myjs.js'></script>
     <script>
         var _hmt = _hmt || [];
         (function() {
@@ -36,361 +38,264 @@
             <span id='to-top-title-xs'>返回</br>顶部</span>
         </a>
     </div>
+    <input id="siteurl" class="siteurl" type="hidden" value="http://localhost:4000">
     <div class='headerbar'>
-            <div class='navbar navbar-default navbar-fixed-top' role='navigation'>
-        <div class='containr-fluid'>
-            <div class='navbar-header'>
-                <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bw-navbar-collapse'>
-                    <span class='sr-only'>下拉框</span>
-                    <span class='icon-bar'></span>
-                    <span class='icon-bar'></span>
-                    <span class='icon-bar'></span>
-                </button>
-                <a class='navbar-brand' href='/'>Blog<span>ways</span></a>
+        <div class="navbar navbar-default navbar-inverse navbar-fixed-top " role="navigation">
+    <div class="container" id="nav-container">s
+        <div class="row " id="nav-row">
+            <!--图标-->
+            <div class="col-sm-6 col-sm-offset-4 col-md-3 col-md-offset-0 " id="nav-coin">
+                <div class="navbar-header  ">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#example-navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="http://localhost:4000" class="navbar-brand">
+                        <img src="/images/logo.png">
+                    </a>
+                </div>
             </div>
-            <div class='navbar-collapse collapse' id='bw-navbar-collapse'>
-                <ul class='nav navbar-nav'>
-                    <li><a href='/'>主页</a></li>
-                    <li class='divider visible-xs'></li>
-                    
-                    <li class='dropdown visible-sm visible-xs active'>
-                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>热门分类
-                            <span class='caret'></span>
-                        </a>
-                        <ul class='dropdown-menu cate-drop-menu' role='menu'>
-                            
-                            <li>
-                                <a href='/categories/Jekyll/'>Jekyll
-                                    <span class='badge pull-right'>4</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/杂记/'>杂记
-                                    <span class='badge pull-right'>32</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/JUnit/'>JUnit
-                                    <span class='badge pull-right'>8</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/NoSQL/'>NoSQL
-                                    <span class='badge pull-right'>11</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Sencha/'>Sencha
-                                    <span class='badge pull-right'>5</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Nginx/'>Nginx
-                                    <span class='badge pull-right'>5</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Apache/'>Apache
-                                    <span class='badge pull-right'>12</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Node.js/'>Node.js
-                                    <span class='badge pull-right'>7</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Express/'>Express
-                                    <span class='badge pull-right'>14</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/jQuery/'>jQuery
-                                    <span class='badge pull-right'>22</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Java/'>Java
-                                    <span class='badge pull-right'>12</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Solr/'>Solr
-                                    <span class='badge pull-right'>6</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/WordPress/'>WordPress
-                                    <span class='badge pull-right'>3</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/drupal/'>drupal
-                                    <span class='badge pull-right'>2</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/joomla/'>joomla
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/design/'>design
-                                    <span class='badge pull-right'>11</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Web前端/'>Web前端
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/keepalived/'>keepalived
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/iot/'>iot
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/web前端/'>web前端
-                                    <span class='badge pull-right'>15</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/交互设计/'>交互设计
-                                    <span class='badge pull-right'>6</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Spring/'>Spring
-                                    <span class='badge pull-right'>3</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/web后端/'>web后端
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/git/'>git
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/索引/'>索引
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/storm/'>storm
-                                    <span class='badge pull-right'>6</span>
-                                </a>
-                            </li>
-                            
-                            <li class='disabled active'>
-                                <a href='javascript:void(0)'>Python
-                                    <span class='badge pull-right'>2</span>
-                                </a>
-                                </li>
-                            
-                            <li>
-                                <a href='/categories/nodejs/'>nodejs
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/地图/'>地图
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/websocket/'>websocket
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/kafka/'>kafka
-                                    <span class='badge pull-right'>4</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/GC/'>GC
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/tiles/'>tiles
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/dubbo/'>dubbo
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/zookeeper/'>zookeeper
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/JVM/'>JVM
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/mysql/'>mysql
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/ehcache/'>ehcache
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/disconf/'>disconf
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/docker/'>docker
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/linux/'>linux
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/spring-cloud/'>spring-cloud
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/Git/'>Git
-                                    <span class='badge pull-right'>1</span>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href='/categories/数据库/'>数据库
-                                    <span class='badge pull-right'>2</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class='dropdown'>
-                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>关于我们
-                            <span class='caret'></span>
-                        </a>
-                        <ul class='dropdown-menu' role='menu'>
-                            <li><a href='/about.html'>所有信息</a></li>
-                            <li class='divider'></li>
-                            <li><a href='/authors/chenfan/'>陈凡</a></li>
-                            <li><a href='/authors/chenlong/'>陈龙</a></li>
-                            <li><a href='/authors/chenwt/'>陈文婷</a></li>
-                            <li><a href='/authors/fukui/'>付奎</a></li>
-                            <li><a href='/authors/gaoxiaobo/'>高晓波</a></li>
-                            <li><a href='/authors/huangmai/'>黄劢</a></li>
-                            <li><a href='/authors/jacky/'>Jacky</a></li>
-                            <li><a href='/authors/jyjsjd/'>景阳</a></li>
-                            <li><a href='/authors/liuyiwei/'>刘益伟</a></li>
-                            <li><a href='/authors/qianwx/'>钱文旭</a></li>
-                            <li><a href='/authors/tangshizhong/'>汤仕忠</a></li>
-                            <li><a href='/authors/tangzhi/'>唐治</a></li>
-                            <li><a href='/authors/wangdong/'>王栋</a></li>
-                            <li><a href='/authors/wanghui/'>汪回</a></li>
-                            <li><a href='/authors/xuwannian/'>徐万年</a></li>
-                            <li><a href='/authors/wanzhou/'>万洲</a></li>
-                            <li><a href='/authors/zhangke/'>张可</a></li>
-                            <li><a href='/authors/zhangshaoyong/'>张少勇</a></li>
-                            <li><a href='/authors/zhaojiajun/'>赵家君</a></li>
-                        </ul>
-                    </li>
-                    <li><a href='https://github.com/blogways/blogways.github.io' title='https://github.com/blogways/blogways.github.io' target='_blank'>欢迎投稿</a></li>
-                </ul>
-                <!--<form class="navbar-form navbar-right hidden-sm hidden-xs" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <button type="submit" class="btn btn-default">Submit</button>
-                    </div>
-                </form>-->
-                <p class="navbar-text navbar-right hidden-sm hidden-xs"><small>汇集优秀博文(关注:敏捷开发/WEB开发/移动终端开发/NOSQL/云计算...)尽在</small><a href="/" class="navbar-link">Blogways</a>!</p>
-            </div>
-        </div>    
-    </div>
+            <!--分类-->
+            <div class="col-sm-9  col-md-6" id="nav-menu">
+                <div class="collapse navbar-collapse " id="example-navbar-collapse">
+                    <ul class="nav navbar-nav blogtag4">
+                        <li><a href="http://localhost:4000">HOME</a></li>
+                        <li><a href="http://localhost:4000/yearBlog.html">BLOG</a></li>
+                        <li><a href="https://github.com/blogways/blogways.github.io">MY-ZONE</a></li>
 
+
+                        <li class="dropdown ">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US </a>
+                            <ul class="dropdown-menu about-us-ul">
+                                
+                                <li class=""><a href="http://localhost:4000/authors/chenfan/">陈凡</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/chenlong/">陈龙</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/chenwt/">陈文婷</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/fukui/">付奎</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/gaoxiaobo/">高晓波</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/huangmai/">黄劢</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/jacky/">Jacky</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/jyjsjd/">景阳</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/liuyiwei/">刘益伟</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/qianwx/">钱文旭</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/tangshizhong/">汤仕忠</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/tangzhi/">唐 治</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/wangdong/">王栋</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/wanghui/">汪 回</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/wangtianwen/">王天文</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/xuwannian/">徐万年</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/wanzhou/">万洲</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/zhangke/">张可</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/zhangshaoyong/">张少勇</a></li>
+                                
+                                <li class=""><a href="http://localhost:4000/authors/zhaojiajun/">赵家君</a></li>
+                                
+                            </ul>
+                        </li>
+
+                        <li><a href="#">MORE</a></li>
+                        <li class="dropdown" id="mobile-tags">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false"><strong>热门分类</strong> <span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu list-group">
+                                
+                                
+                                <a href="http://localhost:4000/categories/Apache" class="list-group-item margin-top-3 margin-top-5px" >Apache</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Express" class="list-group-item margin-top-3 margin-top-5px" >Express</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/GC" class="list-group-item margin-top-3 margin-top-5px" >GC</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Git" class="list-group-item margin-top-3 margin-top-5px" >Git</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/JUnit" class="list-group-item margin-top-3 margin-top-5px" >JUnit</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/JVM" class="list-group-item margin-top-3 margin-top-5px" >JVM</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Java" class="list-group-item margin-top-3 margin-top-5px" >Java</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Jekyll" class="list-group-item margin-top-3 margin-top-5px" >Jekyll</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Nginx" class="list-group-item margin-top-3 margin-top-5px" >Nginx</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/NoSQL" class="list-group-item margin-top-3 margin-top-5px" >NoSQL</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Node.js" class="list-group-item margin-top-3 margin-top-5px" >Node.js</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Python" class="list-group-item margin-top-3 margin-top-5px" >Python</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Sencha" class="list-group-item margin-top-3 margin-top-5px" >Sencha</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Solr" class="list-group-item margin-top-3 margin-top-5px" >Solr</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Spring" class="list-group-item margin-top-3 margin-top-5px" >Spring</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/Web前端" class="list-group-item margin-top-3 margin-top-5px" >Web前端</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/WordPress" class="list-group-item margin-top-3 margin-top-5px" >WordPress</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/design" class="list-group-item margin-top-3 margin-top-5px" >design</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/disconf" class="list-group-item margin-top-3 margin-top-5px" >disconf</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/docker" class="list-group-item margin-top-3 margin-top-5px" >docker</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/drupal" class="list-group-item margin-top-3 margin-top-5px" >drupal</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/dubbo" class="list-group-item margin-top-3 margin-top-5px" >dubbo</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/ehcache" class="list-group-item margin-top-3 margin-top-5px" >ehcache</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/git" class="list-group-item margin-top-3 margin-top-5px" >git</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/iot" class="list-group-item margin-top-3 margin-top-5px" >iot</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/jQuery" class="list-group-item margin-top-3 margin-top-5px" >jQuery</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/joomla" class="list-group-item margin-top-3 margin-top-5px" >joomla</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/kafka" class="list-group-item margin-top-3 margin-top-5px" >kafka</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/keepalived" class="list-group-item margin-top-3 margin-top-5px" >keepalived</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/linux" class="list-group-item margin-top-3 margin-top-5px" >linux</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/mysql" class="list-group-item margin-top-3 margin-top-5px" >mysql</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/nodejs" class="list-group-item margin-top-3 margin-top-5px" >nodejs</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/spring-cloud" class="list-group-item margin-top-3 margin-top-5px" >spring-cloud</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/storm" class="list-group-item margin-top-3 margin-top-5px" >storm</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/tiles" class="list-group-item margin-top-3 margin-top-5px" >tiles</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/websocket" class="list-group-item margin-top-3 margin-top-5px" >websocket</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/web前端" class="list-group-item margin-top-3 margin-top-5px" >web前端</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/web后端" class="list-group-item margin-top-3 margin-top-5px" >web后端</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/zookeeper" class="list-group-item margin-top-3 margin-top-5px" >zookeeper</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/交互设计" class="list-group-item margin-top-3 margin-top-5px" >交互设计</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/地图" class="list-group-item margin-top-3 margin-top-5px" >地图</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/数据库" class="list-group-item margin-top-3 margin-top-5px" >数据库</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/杂记" class="list-group-item margin-top-3 margin-top-5px" >杂记</a>
+                                <div class="spritline"></div>
+                                
+                                <a href="http://localhost:4000/categories/索引" class="list-group-item margin-top-3 margin-top-5px" >索引</a>
+                                <div class="spritline"></div>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--搜索框  （平板，手机端显示）-->
+            <div class="col-sm-3 pull-right " id="nav-search-mobile">
+                <form class="navbar-form pull-right width-percent-hundrud no-padding-left " role="search">
+                    <div class="form-group search-form search-form-width ">
+                        <span class="glyphicon glyphicon-search search-text-coin"></span>
+                        <input type="text" class="form-control search-text " placeholder="搜索标签、人">
+                        <span class="badge text-color-black search-text-new">new</span>
+                    </div>
+                    <ul class="searchresult">
+                    </ul>
+                </form>
+
+            </div>
+            <!--搜索框 （中大型屏幕显示）-->
+            <div class="col-xs-12 col-md-3" id="nav-search-computer">
+                <form class="navbar-form pull-right width-percent-hundrud no-padding-left no-padding-right" role="search">
+                    <div class="form-group search-form ">
+                        <span class="glyphicon glyphicon-search search-text-coin"></span>
+                        <input type="text" class="form-control search-text" id="search-text" placeholder="搜索标签、人">
+                        <span class="badge text-color-black search-text-new">new</span>
+                    </div>
+                    <ul class="searchresult">
+                    </ul>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
     </div>
         <div class='container'>
         <div class='main-content row'>
             <div class='mainbar col-md-9 col-sm-12 col-xs-12'>
-                <div class='panel panel-info'>
+                <div class='panel panel-info tag-search-result'>
                     <div class='category-title panel-heading'>
                         <h2 class='category-name panel-title'>Python</h2>
                     </div>
                     <div class='panel bdsharebar'>
-                        <!-- Baidu Button BEGIN -->
-<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-<a class="bds_qzone"></a>
-<a class="bds_tsina"></a>
-<a class="bds_tqq"></a>
-<a class="bds_renren"></a>
-<a class="bds_t163"></a>
-<span class="bds_more"></span>
-<a class="shareCount"></a>
-</div>
-<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=59150" ></script>
-<script type="text/javascript" id="bdshell_js"></script>
-<script type="text/javascript">
-document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
-</script>
-<!-- Baidu Button END -->
-
                     </div>
                 </div>
 
@@ -1532,305 +1437,305 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 
                 <div class='al-article-list-xs hidden-lg hidden-md hidden-sm visible-xs'>
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        
+                        
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                         
                     <div class='panel panel-default'>
                         <div class='panel-heading'>
                             <h2 class='panel-title al-year'>2017</h2>
@@ -1843,196 +1748,196 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                                     <span class='badge'>Python</span>
                                 </div>
                             </a>
-                    
-                    
+                        
+                        
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
                             
                         </div><!--end of list-group-->
                     </div><!--end of panel-->
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                         
                     <div class='panel panel-default'>
                         <div class='panel-heading'>
                             <h2 class='panel-title al-year'>2016</h2>
@@ -2046,631 +1951,631 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                                 </div>
                             </a>
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
                             
                         </div><!--end of list-group-->
                     </div><!--end of panel-->
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        
+                        
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        
+                        
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        
+                        
                             
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                        
                             
                 </div><!--end of list-xs-->
             </div><!--end of mainbar-->
@@ -2707,6 +2612,9 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
         </div><!--end of main-content-->
     </div><!--end of container-->
 
-    <script src="http://s13.cnzz.com/stat.php?id=5229914&web_id=5229914" language="JavaScript"></script>
+    <footer class=" container-fluid bottom-div fixed">
+        Copyright  &copy; blogways.net
+
+    </footer>
 </body>
 </html>	
