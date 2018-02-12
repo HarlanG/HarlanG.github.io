@@ -25,16 +25,18 @@
                     {% assign yearcount = yearcount | plus : 1 %}
                 {% endif %}
             {% endfor %}
+            {% if yearcount > 0 %}
             <div class="col-sm-12  col-md-12 row list-group yearBlogSub-container">
                 <p class=" yearBlogSub yearCountBar ">{{y}}年度 ({{ yearcount }}篇)</p>
                 {% for post in site.posts %}
                     {% assign postyear = post.date | date: "%Y" %}
                     {% assign postauthor = post.author |strip  %}
                     {% if postyear == y and  author == postauthor %}
-                <a href="{{ post.url }}" class="list-group-item"><span class="glyphicon glyphicon-user "></span>{{ post.title }}<span class="pull-right ">发布于:{{post.date | date: "%Y.%m.%d"}}</span> </a>
+                <a href="{{ post.url }}" class="list-group-item"><span class="glyphicon glyphicon-user "></span>&nbsp;{{ post.title }}<span class="pull-right ">发布于:{{post.date | date: "%Y.%m.%d"}}</span> </a>
                     {% endif %}
                 {% endfor %}
             </div>
+            {% endif %}
             {% endfor %}
         </div>
 
