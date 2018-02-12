@@ -42,7 +42,11 @@ pt_page_type: pt
                                         <a class='label label-default' href='{{site.url}}/tags/{{ tag | downcase }}/'>{{ tag }}</a>
                                         {% assign limnum = limnum | minus: 1 %}{% endif %}
                                         {% if forloop.last == false and limnum > 0 %}&nbsp;{% endif %}{% endfor %}{% endif %}
-                                        <span class="glyphicon glyphicon-list"></span>&nbsp;分类: <a class='label label-default' href='{{site.url}}/categories/{{ page.category | first | strip | downcase }}'>{{ page.category }}</a>
+                                        {% assign pageCategory = page.category | first %}
+                                        {% if pageCategory == "" or pageCategory == nil %}
+                                        {% assign pageCategory = page.category %}
+                                        {% endif %}
+                                        <span class="glyphicon glyphicon-list"></span>&nbsp;分类: <a class='label label-default' href='{{ site.url}}/categories/{{ pageCategory | downcase }}/'>{{ pageCategory }}</a>
                                     </div>
                                     <div class="col-xs-12  col-sm-2">
                                         <small class='pt-article-date hidden-xs'>

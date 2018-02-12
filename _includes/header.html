@@ -22,7 +22,17 @@
                         <li><a href="{{site.url}}">HOME</a></li>
                         <li><a href="{{site.url}}/yearBlog.html">BlOG</a></li>
                         <li><a href="https://github.com/blogways/blogways.github.io">MY-ZONE</a></li>
-                        <li><a href="#">ABOUT US</a></li>
+
+
+                        <li class="dropdown ">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US </a>
+                            <ul class="dropdown-menu about-us-ul">
+                                {% for author in site.authors %}
+                                <li class=""><a href="{{site.url}}{{ author.page_path }}">{{author.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
                         <li><a href="#">MORE</a></li>
                         <li class="dropdown" id="mobile-tags">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"

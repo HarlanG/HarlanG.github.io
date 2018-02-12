@@ -6,16 +6,13 @@ page_tags: 标签
     <div class='container'>
         <div class='main-content row'>
             <div class='mainbar col-md-9 col-sm-12 col-xs-12'>
-                <div class='panel panel-info'>
+                <div class='panel panel-info tag-search-result'>
                     <div class='category-title panel-heading'>
                         <h2 class='category-name panel-title'>{{ page.tag }}</h2>
                     </div>
-                    <div class='panel bdsharebar'>
-                        {% include bdshare.html %}
-                    </div>
                 </div>
 
-                <div class='category-list al-article-list visible-lg visible-md visible-sm hidden-xs'>
+                <div class='category-list al-article-list visible-lg visible-md visible-sm hidden-xs '>
                     {% for year in site.data.years %}
                     {% assign flag = true %}
                     {% for cate in site.tags %}

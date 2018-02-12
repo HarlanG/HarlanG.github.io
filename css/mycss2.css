@@ -1,3 +1,15 @@
+.about-us-ul{
+    padding: 0px;
+    min-width: 0px;
+    width: 100%;
+    text-align: center;
+}
+.about-us-ul > li  {
+    background-color: #000;
+}
+.about-us-ul > li > a {
+    color: #fff;
+}
 /*覆盖已设定值*/
 /*移动设备*/
 @media (max-width: 767px) {
@@ -43,7 +55,9 @@
         background-color: inherit;
         border: 1px solid #777;
     }
-
+    .tag-search-result{
+        margin-top: 50px;
+    }
 }
 
 /*平板*/
@@ -130,6 +144,9 @@
     }
     #index-body{
         margin-top:130px;
+    }
+    .tag-search-result{
+        margin-top: 30px;
     }
 }
 #computer-tags{
